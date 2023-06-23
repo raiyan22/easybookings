@@ -43,4 +43,4 @@ app.get('/', (req, res) => {
 app.listen(8800, () => {
     connect();
     console.log("Server running on port: 8800");
-})
+});
