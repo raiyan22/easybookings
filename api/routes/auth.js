@@ -1,13 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
+import { register } from "../controllers/auth.js";
 
 const router = express.Router();
 
-router.get('/', (req,res)=> {
-    res.send("Hi, auth endpoint here")
-})
-router.get('/register', (req,res)=> {
-    res.send("Hi, auth register endpoint here")
-})
+router.post('/register', register)
 
 export default router;
