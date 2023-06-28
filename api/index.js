@@ -5,6 +5,7 @@ import authRoute from './routes/auth.js' // extension required for import
 import usersRoute from './routes/users.js' // extension required for import
 import hotelsRoute from './routes/hotels.js' // extension required for import
 import roomsRoute from './routes/rooms.js' // extension required for import
+import { createError } from "./utils/error.js";
 
 const app = express();
 dotenv.config();
@@ -37,9 +38,20 @@ app.use('/api/rooms', roomsRoute);
 
 // err handling middleware
 app.use((err,req,res,next)=>{
-    const errStatus = err.status || 500;
-    const errMessage = err.message || "Something went wrong!";
-    return res.status(errStatus).json(errMessage);
+    const failed = true;
+    // if(failed) return next(createError(401, "You are not authenticated"));
+
+
+    // const errStatus = err.status || 500;
+    // const errMessage = err.message || "Something went wrong!";
+    // return res.status(errStatus).json(errMessage);
+    // return res.status(errStatus).json({
+    //     success: false,
+    //     status: errStatus,
+    //     message: errMessage,
+    //     stack: err.stack,
+    // }); 
+    
 });
 
 

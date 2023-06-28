@@ -66,6 +66,7 @@ router.get("/:id", async (req,res)=> {
 // GetAll
 router.get("/", async (req,res)=> {
 
+    
     try {
         // const updatedHotel = await Hotel.findByIdAndDelete(req.params.id, { $set: req.body}, {new: true}); // new so that it shows updated item
         const hotels = await Hotel.find();
