@@ -21,11 +21,11 @@ const connect = async () => { // does not retry
 }
 
 mongoose.connection.on("disconnected", ()=>{ // retries
-    console.log("[Retried] MongoDB disconnected!");
+    console.log("[Retried] MongoDB DISCONNECTED!");
 });
 
 mongoose.connection.on("connected", ()=>{ // retries
-    console.log("[Retried] MongoDB connected!");
+    console.log("[Retried] MongoDB Connected!");
 })
 
 // middlewares

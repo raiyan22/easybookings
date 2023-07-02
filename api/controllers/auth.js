@@ -12,5 +12,6 @@ export const register = async(req, res, next) => {
         res.status(200).send("User has been created!");
     } catch (err) {
         next(err);
+        // res.json(err);
     }
 }
