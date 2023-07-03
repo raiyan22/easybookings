@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import createError from "../utils/error.js";
 import bcrypt from 'bcryptjs';
+import jwt from "jsonwebtoken";
 
 
 export const register = async (req, res, next) => {
@@ -32,8 +33,14 @@ export const login = async (req, res, next) => {
         const isPassCorrect = await bcrypt.compare(req.body.password, user.password);
         if(!isPassCorrect) return res.status(400).send("Wrong pass/username");
 
+        // jwt
+        
+
+        const {password, isAdmin, ...otherDetails} =  user._doc
+
         // res.status(200).send("Logged in!");
-        res.status(200).json(user);
+        // res.status(200).json(user);
+        res.status(200).json({...otherDetails});
     } catch (err) {
         // next(err);
         res.json(err);
